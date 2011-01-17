@@ -1,4 +1,10 @@
 Revision history for Perl extension Plack::Middleware::Perl::Info
 
-0.01    Sun Dec 19 14:24:48 2010
-        - original version
+0.003
+	- rename Perl::Info to Perl::Status
+
+0.002
+	- Add to github
+
+0.001
+	- original version

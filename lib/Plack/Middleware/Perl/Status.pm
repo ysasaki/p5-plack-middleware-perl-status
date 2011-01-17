@@ -1,4 +1,4 @@
-package Plack::Middleware::Perl::Info;
+package Plack::Middleware::Perl::Status;
 use strict;
 use warnings;
 use parent qw(Plack::Middleware);
@@ -6,7 +6,7 @@ use Plack::Util::Accessor qw(board base_dir path);
 use Parallel::Scoreboard;
 use Data::MessagePack;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 sub prepare_app {
     my $self = shift;
@@ -16,7 +16,7 @@ sub prepare_app {
             Parallel::Scoreboard->new( base_dir => $self->base_dir ) );
     }
     else {
-        die "Perl::Info require base_dir option";
+        die "Perl::Status requires base_dir option";
     }
 }
 
@@ -69,14 +69,15 @@ __END__
 
 =head1 NAME
 
-Plack::Middleware::Perl::Info -
+Plack::Middleware::Perl::Status -
 
 =head1 SYNOPSIS
 
   use Plack::Builder;
 
   builder {
-      enable "Plack::Middleware::Perl::Info",
+      enable "Plack::Middleware::Perl::Status
+",
           path => '/perl-info',
           base_dir => '/tmp/my-server';
       $app;
@@ -84,7 +85,7 @@ Plack::Middleware::Perl::Info -
 
 =head1 DESCRIPTION
 
-Plack::Middleware::Perl::Info is
+Plack::Middleware::Perl::Status is
 
 =head1 AUTHOR
 
